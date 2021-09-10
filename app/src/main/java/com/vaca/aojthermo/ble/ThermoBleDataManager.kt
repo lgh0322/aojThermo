@@ -90,7 +90,7 @@ class ThermoBleDataManager(context: Context) : BleManager(context) {
                 .enqueue()
             // You may easily enqueue more operations here like such:
             setNotificationCallback(notify_char)
-                .with { device: BluetoothDevice?, data: Data? -> listener!!.onNotify(device, data) }
+                .with { device: BluetoothDevice?, data: Data? -> listener?.onNotify(device, data) }
         }
 
         override fun onDeviceDisconnected() {
@@ -99,9 +99,7 @@ class ThermoBleDataManager(context: Context) : BleManager(context) {
             notify_char = null
         }
 
-        override fun onServicesInvalidated() {
 
-        }
     }
 
     companion object {

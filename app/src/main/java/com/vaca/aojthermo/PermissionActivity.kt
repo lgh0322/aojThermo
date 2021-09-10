@@ -80,11 +80,8 @@ class PermissionActivity : AppCompatActivity() {
             return;
         }
         if (!(bluetoothAdapter.isEnabled)) {
-            val enableBtIntent = Intent(
-                BluetoothAdapter.ACTION_REQUEST_ENABLE
-            )
-            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
-            return;
+            bluetoothAdapter.enable()
+
         }
         startActivity(Intent(this, MainActivity::class.java))
         this.finish()
